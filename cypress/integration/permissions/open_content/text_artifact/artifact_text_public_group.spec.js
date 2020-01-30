@@ -36,7 +36,7 @@ context('Permissions', () => {
         '#edit-field-permissions-und-open:check:open'
       ], () => {
         cy.type_tinyMCE('edit-field-pece-crit-commentary-und-0-value', "<p>This text is very important</p>")
-        cy.type_tinyMCE('edit-body-und-0-value', "<p>Test private text artifact content</p>")
+        cy.type_tinyMCE('edit-body-und-0-value', "<p>Test open text artifact content</p>")
       })
     })
 
