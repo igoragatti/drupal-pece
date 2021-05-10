@@ -1,19 +1,19 @@
-uuid: 97fc69d5-21d1-4a73-9f4c-8c9c85cbcaa3
+uuid: 64abd2e7-bee4-475d-9491-5df3b746918d
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - user
-id: node.field_pece_contributors
-field_name: field_pece_contributors
-entity_type: node
+    - paragraphs
+id: paragraph.field_pece_image_artifact
+field_name: field_pece_image_artifact
+entity_type: paragraph
 type: entity_reference
 settings:
-  target_type: user
+  target_type: node
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
