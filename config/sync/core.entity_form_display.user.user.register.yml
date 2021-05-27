@@ -1,21 +1,21 @@
-uuid: 93386637-c393-4c36-8368-44b09f6b0b18
+uuid: aa3ae5ff-31b7-49d7-8457-1ae0e451bfc3
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.user.register
     - field.field.user.user.field_pbc_ref_group
     - field.field.user.user.field_user_picture
     - field.field.user.user.field_zotero
-    - image.style.thumbnail
   module:
-    - image
     - path
     - pbf
+    - profile
     - user
-id: user.user.default
+id: user.user.register
 targetEntityType: user
 bundle: user
-mode: default
+mode: register
 content:
   account:
     weight: -10
@@ -42,14 +42,6 @@ content:
     third_party_settings: {  }
     type: pbf_widget
     region: content
-  field_user_picture:
-    weight: 33
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-    type: image_image
-    region: content
   field_zotero:
     weight: 31
     settings:
@@ -69,11 +61,18 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  pece_profile_main_profiles:
+    type: profile_form
+    weight: 90
+    settings:
+      form_mode: default
+    third_party_settings: {  }
+    region: content
   timezone:
     weight: 6
     settings: {  }
     third_party_settings: {  }
     region: content
 hidden:
+  field_user_picture: true
   langcode: true
-  pece_profile_main_profiles: true

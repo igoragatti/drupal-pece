@@ -1,0 +1,50 @@
+id: v1_profile
+label: User accounts profile
+audit: true
+migration_group: pece
+migration_tags:
+  - "PECE v1"
+  - "Drupal 7"
+  - Content
+deriver: Drupal\profile\Plugin\migrate\D7Profile2Deriver
+source:
+  plugin: d7_profile2
+  constants:
+    status: 1
+    is_default: 1
+process:
+  profile_id: pid
+  type: type
+  uid: uid
+  status: 'constants/status'
+  is_default: 'constants/is_default'
+  created: created
+  changed: changed
+  field_pece_full_name: field_pece_full_name
+  field_pece_biography: field_pece_biography
+  field_pece_email:
+    plugin: extract
+    source: field_pece_email
+    index:
+      - 0
+      - email
+  field_pece_institution: field_pece_institution
+  field_pece_position: field_pece_position
+  field_pece_tags: field_pece_tags
+  field_pgp_key/target_id:
+    plugin: extract
+    source: field_gpg_key
+    index:
+      - 0
+      - fid
+  field_pece_location:
+    plugin: location_to_address
+    source: field_pece_location
+destination:
+  plugin: entity:profile
+migration_dependencies:
+  required:
+    - v1_user
+    - v1_file
+  optional:
+    - d7_field_instance
